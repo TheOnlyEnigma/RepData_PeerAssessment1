@@ -1,13 +1,32 @@
 ---
-title: "Peer-Graded Assignment"
-output: html_document
+Title: "Peer-Graded Assignment: "
+Author: "TheOnlyEnigma"
+Date: "22.09.2017"
+Output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# PEER-GRADED ASSIGNMENT: REPRODUCIBLE RESEARCH
 
-## R Markdown
+## Loading and Processing the Data
+ 
+ Prior to downloading, and opening up the activity.csv, the basic packages needed need to be opened and downloaded (if neccessary)
+ 
+ ```{r, echo = TRUE}
+ 
+ 
+ 
+ ```
+ 
+ 
+
+## What is the Mean Total of Steps Taken per Day?
+
+## What is the Average Daily Activity Pattern?
+
+## Inputing the Missing Valiues
+
+## Are there Difference in Activity Patterns between Weekdays and Weekends?
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
