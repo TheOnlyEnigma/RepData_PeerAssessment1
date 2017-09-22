@@ -9,15 +9,44 @@ Output: html_document
 
 ## Loading and Processing the Data
  
- Prior to downloading, and opening up the activity.csv, the basic packages needed need to be opened and downloaded (if neccessary)
+Prior to downloading, and opening up the activity.csv, the basic packages needed need to be opened and downloaded (if neccessary), using the library command. Furthermore a check of the current working directory is completed, and is changed if the user wishes.
  
- ```{r, echo = TRUE}
+```{r, echo = TRUE}
+ library(knitr)
+ library(ggplot2)
+ library(dplyr)
+ library(lubridate)
  
+ getwd()
+ setwd("~/Courses/Reproducible_Research/Assignment/repdata_data_activity/RepData_PeerAssessment1")
+ dir()
  
+```
  
- ```
+ Reading the data into RStudios, and transforming said data into a suitable format for initial, and further analysis
  
+```{r, echo = TRUE}
+ zipfile <- "rep_data_activity.zip"
+ fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
  
+ if(!file.exists("activity.csv")) {
+  download.file(fileUrl, destfile=zipFile)
+  unzip(zipFile)
+  file.remove(zipFile)
+}
+
+activity <- read.csv("activity.csv", header = TRUE, sep = ",", colClasses = c("numeric", "character", "integer"))
+ 
+```
+ 
+ Check downloaded data using the head function
+ 
+```{r, echo = TRUE}
+
+head(activity)
+summary(activity)
+    
+```
 
 ## What is the Mean Total of Steps Taken per Day?
 
@@ -26,22 +55,3 @@ Output: html_document
 ## Inputing the Missing Valiues
 
 ## Are there Difference in Activity Patterns between Weekdays and Weekends?
-
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
